@@ -5,7 +5,7 @@ import "./database";
 const app = express();
 
 app.get("/", (request, response) => {
-    return response.json({ message: "Hello NLW04" });
+    return response.json({ message: "Hello User" });
 });
 
 app.post("/", (request, response) => {
