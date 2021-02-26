@@ -3,6 +3,9 @@ import { getCustomRepository } from "typeorm";
 import { SurveyRepository } from "../repositories/SurveyRepository";
 
 class SurveyController {
+    execute(arg0: string, execute: any) {
+        throw new Error('Method not implemented.');
+    }
     async create(request: Request, response: Response) {
         const { title, description } = request.body;
 
