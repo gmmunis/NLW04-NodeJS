@@ -4,15 +4,14 @@ import {
     Entity,
     JoinColumn,
     ManyToOne,
-    PrimaryColumn
-} from "typeorm";
+    PrimaryColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Survey } from "./Survey";
-import { User } from "./User";
+import { Survey } from './Survey';
+import { User } from './User';
 
-@Entity("surveys_users")
+@Entity('surveys_users')
 class SurveyUser {
-
     @PrimaryColumn()
     readonly id: string;
 
@@ -20,25 +19,25 @@ class SurveyUser {
     user_id: string;
 
     @ManyToOne(() => User)
-    @JoinColumn({ name: "user_id" })
+    @JoinColumn({ name: 'user_id' })
     user: User;
 
     @Column()
     survey_id: string;
 
-    @ManyToOne(() => User)
-    @JoinColumn({ name: "user_id" })
+    @ManyToOne(() => Survey)
+    @JoinColumn({ name: 'survey_id' })
     survey: Survey;
 
     @Column()
-    value: number
+    value: number;
 
     @CreateDateColumn()
-    created_at: Date
+    created_at: Date;
 
     constructor() {
         if (!this.id) {
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 }
